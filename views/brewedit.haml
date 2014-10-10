@@ -1,0 +1,42 @@
+#content
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %title Brew PI
+    / Bootstrap
+    %link{:href => "css/bootstrap.min.css", :rel => "stylesheet"}/
+    / HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    / WARNING: Respond.js doesn't work if you view the page via file://
+    /[if lt IE 9]
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  %body
+    %h1 BrewPI
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title Current Temperature
+      .panel-body
+        %form{:role => "form",:action => "/brewpost", :method=>"post"}
+          .form-group
+            %label{:for => "settemp"} Set Temp
+            %input#settemp.form-control{:placeholder => "Set Temp", :type => "text"}
+          .form-group
+            %label{:for => "cyclelength"} Cycle Length (seconds)
+            %input#cyclelength.form-control{:placeholder => "4", :type => "text"}
+          .form-group
+            %label{:for => "dutycycle"} Duty Cycle
+            %input#settemp.form-control{:placeholder => ".5", :type => "text"}
+          .form-group
+            %label{:for => "sensorselect"} Select Sensor
+            %select#sensorselect.form-control
+              %option Sensor 1
+              %option Sensor 2
+          %button.btn.btn-warning{:type => "button"} Submit
+
+    / jQuery (necessary for Bootstrap's JavaScript plugins)
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
+    / Include all compiled plugins (below), or include individual files as needed
+    %script{:src => "js/bootstrap.min.js"}
