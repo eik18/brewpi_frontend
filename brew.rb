@@ -9,9 +9,9 @@ configure do
 	set :bind, '0.0.0.0'
 	set :port, '4567'
 end
-esettemp="0"
+$esettemp="0"
 get '/' do
-	haml :brewhome, :locals => {:temp1 => '14',:temp2=>'18',:rsettemp=>esettemp}
+	haml :brewhome, :locals => {:temp1 => '14',:temp2=>'18',:rsettemp=>$esettemp}
 end
 
 get "/brewedit" do
@@ -19,7 +19,7 @@ get "/brewedit" do
 end
 
 post "/brewpost" do
-	esettemp = params[:settemp]
+	$esettemp = params[:settemp]
 	redirect '/'
 end
 
