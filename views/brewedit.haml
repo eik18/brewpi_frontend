@@ -34,7 +34,11 @@
             %select#sensorselect.form-control
               %option Sensor 1
               %option Sensor 2
-          %button.btn.btn-warning{:type => "button"} Submit
+          %input{:type => "submit", :value => "Submit"}
+          / %input.button.btn.btn-warning{:type => "button", :value="submit"} 
+          / Submit
+
+          /%input{:type => "submit", :value => "Submit"}
 
     / jQuery (necessary for Bootstrap's JavaScript plugins)
     %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
