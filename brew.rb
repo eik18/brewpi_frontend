@@ -2,14 +2,15 @@ require 'haml'
 require 'sinatra'
 require 'json'
 require 'net/http'
+require 'uri'
 
-
+$esettemp="0"
 
 configure do
 	set :bind, '0.0.0.0'
 	set :port, '4567'
 end
-$esettemp="0"
+
 get '/' do
 	haml :brewhome, :locals => {:temp1 => '14',:temp2=>'18',:rsettemp=>$esettemp}
 end
@@ -31,3 +32,4 @@ end
 get "/brewedit-test" do
 	haml :brewedittest
 end
+

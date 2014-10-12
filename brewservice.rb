@@ -1,3 +1,5 @@
+
+# This is a test harness file
 require 'haml'
 require 'sinatra'
 require 'json'
