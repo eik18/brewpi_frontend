@@ -19,24 +19,19 @@
       .panel-heading
         %h3.panel-title Current Temperature
       .panel-body
-        %form{:action => "/", :method => "post", :name => "input", :role => "form"}
-          .form-group
-            %label{:for => "settemp"} Select Temp
-            %input#settemp.form-control{:name => "settemp", :placeholder => "Set Temp", :type => "text"}/
-          .form-group
-            %label{:for => "cyclelength"} Cycle Length
-            %input#cyclelength.form-control{:name=>"cyclelength",:placeholder => "4", :type => "text"}/
-          .form-group
-            %label{:for => "dutycycle"} Duty Cycle
-            %input#settemp.form-control{:name=>"dutycycle", :placeholder => ".5", :type => "text"}/
-          .form-group
-            %label{:for => "sensorselect"} Select Sensor
-            %select#sensorselect.form-control{:name=>"sensorselect"}
-              %option{:value=>"1"} Sensor 1
-              %option{:value=>"2"} Sensor 2
-          %button.btn.btn-warning{:type => "submit"} Submit
-
-
+        %form{:action => "/", :method => "post", :name => "input"}
+          Username:
+          %input{:name => "settemp", :type => "text"}/
+          %select{:name => "sensorselect"}
+            %option{:value => "temp1"} temp1
+            %option{:value => "temp2"} temp2
+          %input{:type => "submit", :value => "Submit"}/
+    %form{:action => "/", :method => "post", :name => "input", :role => "form"}
+      .form-group
+        %label{:for => "settemp"} Select Temp
+        %input#settemp.form-control{:name => "settemp", :placeholder => "Set Temp", :type => "text"}/
+      %button.btn.btn-default{:type => "submit"} Submit
+        
     / jQuery (necessary for Bootstrap's JavaScript plugins)
     %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
     / Include all compiled plugins (below), or include individual files as needed
