@@ -22,48 +22,36 @@ get '/bbp/api/v1.0/status' do
 	json.config (config)
 	json.compile!
 end
-=begin
+
 
 #code yet to be factored
 
 get '/bbp/api/v1.0/status/0' do
-	{
-  "device": {
-    "Cycling": 0, 
-    "Number of current cycles": 1298, 
-    "On": 0
-  }
-}
-
+	data = {"Cycling"=> 0, "Number of current cycles"=> 1298, "On"=> 0, "Set Temp"=>220}
+  json = Jsonify::Builder.new(:format => :pretty)
+  json.device (data)
+  json.compile!
 end
 
 get '/bbp/api/v1.0/status/1' do
-	{
-  "device": {
-    "Temp C": 21.0, 
-    "Temp F": 69.8
-  }
-}
-
+  data={"Temp C"=> 21.0, "Temp F"=> 69.8}
+  json = Jsonify::Builder.new(:format => :pretty)
+  json.device (data)
+  json.compile!
 end
 
 get '/bbp/api/v1.0/status/2' do
-	{
-  "device": {
-    "Temp C": 21.0, 
-    "Temp F": 69.8
-  }
-}
-
+  data={"Temp C"=> 24.0, "Temp F"=> 80.8}
+  json = Jsonify::Builder.new(:format => :pretty)
+  json.device (data)
+  json.compile!
 end
 
 post '/bbp/api/v1.0/set_temp' do
 
-Heating device 0started
-
 end
 
-
+=begin
 post '/bbp/api/v1.0/stop_set_temp' do
 
 Heating device 0 stopped.

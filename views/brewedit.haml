@@ -21,17 +21,17 @@
       .panel-body
         %form{:action => "/", :method => "post", :name => "input", :role => "form"}
           .form-group
-            %label{:for => "settemp"} Select Temp
-            %input#settemp.form-control{:name => "settemp", :placeholder => "Set Temp", :type => "text"}/
+            %label{:for => "htemp"} Select Temp
+            %input#settemp.form-control{:name => "htemp", :placeholder => "Set Temp", :type => "text"}/
           .form-group
-            %label{:for => "cyclelength"} Cycle Length
-            %input#cyclelength.form-control{:name=>"cyclelength",:placeholder => "4", :type => "text"}/
+            %label{:for => "cycle_length"} Cycle Length
+            %input#cycle_length.form-control{:name=>"hcycle_length",:placeholder => "4", :type => "text"}/
           .form-group
-            %label{:for => "dutycycle"} Duty Cycle
-            %input#settemp.form-control{:name=>"dutycycle", :placeholder => ".5", :type => "text"}/
+            %label{:for => "duty_cycle"} Duty Cycle
+            %input#duty_cycle.form-control{:name=>"hduty_cycle", :placeholder => ".5", :type => "text"}/
           .form-group
-            %label{:for => "sensorselect"} Select Sensor
-            %select#sensorselect.form-control{:name=>"sensorselect"}
+            %label{:for => "sensor_id"} Select Sensor
+            %select#sensor_id.form-control{:name=>"hsensor_id"}
               %option{:value=>"1"} Sensor 1
               %option{:value=>"2"} Sensor 2
           %button.btn.btn-warning{:type => "submit"} Submit
