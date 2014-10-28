@@ -4,7 +4,7 @@ require 'json'
 require 'net/http'
 require 'uri'
 
-$esettemp="0"
+
 $server='http://192.168.1.113:4568'
 
 
@@ -29,11 +29,11 @@ def get (dir) #DIR is path to RES
 		body=request.body
 		body=JSON.parse (body)
 		code=request.code
-		response={:body=>body,:code=>code,:exception=>false}
+		response={'body'=>body,'code'=>code,'exception'=>false}
 		return response
 		#response=http.request(request)
 	rescue Exception =>msg
-		response={:body=>msg,:code=>401, :exception =>true}
+		response={'body'=>msg,'code'=>401, 'exception' =>true}
 
 		return response
 	end
@@ -49,24 +49,24 @@ get '/' do
 	
 	settings = get '/bbp/api/v1.0/status/0'
 	device1 = get '/bbp/api/v1.0/status/1'
-	device2 = get '/bbp/api/v1.0/status/1'
-
+	device2 = get '/bbp/api/v1.0/status/2'
+	#puts settings
 	if (settings['exception']==true) or (device1['exception']==true) or (device2['exception']==true)
 		puts 'warning'
 	else
-		cycling=settings['body']["device"]["Cycling"]
+		cycling=settings['body']['device']['Cycling']
 		settemp=settings['body']["device"]["Set Temp"]
 		dc1tempc=device1['body']["device"]["Temp C"]
 		dc1tempf=device1['body']["device"]["Temp F"]
 		dc2tempc=device2['body']["device"]["Temp C"]
 		dc2tempf=device2['body']["device"]["Temp F"]
-
 	end
+	
+	haml :brewhome, :locals => {:temp1=>dc1tempf,:temp2=>dc2tempf,:rsettemp=>settemp,:engaged=>cycling}
+
 
 
 	
-
-	haml :brewhome, :locals => {:temp1 => '14',:temp2=>'18',:rsettemp=>$esettemp}
 end
 
 post '/' do
@@ -76,7 +76,7 @@ post '/' do
 	sensor_id=params[:hsensor_id]
 	heating_element_id=8
 	set_temp=220
-	data = {:cycle_length => cycle_length, :duty_cycle => duty_cycle,:sensor_id =>sensor_id, :temp=>temp, :heating_element_id => heating_element_id, :set_temp=set_temp}
+	data = {:cycle_length => cycle_length, :duty_cycle => duty_cycle,:sensor_id =>sensor_id, :temp=>temp, :heating_element_id => heating_element_id, :set_temp=>et_temp}
 
 	response = post '/bbp/api/v1.0/set_temp', data
 

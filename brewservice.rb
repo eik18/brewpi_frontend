@@ -27,7 +27,7 @@ end
 #code yet to be factored
 
 get '/bbp/api/v1.0/status/0' do
-	data = {"Cycling"=> 0, "Number of current cycles"=> 1298, "On"=> 0, "Set Temp"=>220}
+	data = {"Cycling"=> 1, "Number of current cycles"=> 1298, "On"=> 0, "Set Temp"=>220}
   json = Jsonify::Builder.new(:format => :pretty)
   json.device (data)
   json.compile!

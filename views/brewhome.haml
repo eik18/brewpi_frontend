@@ -22,9 +22,15 @@
         
         Temperature 1: #{temp1}
         %br Temperature 2: #{temp2}
-        %br Set Temp: #{rsettemp}
+        - if engaged==1 
+          %br Set Temp: #{rsettemp}
+        
 
-    %a.button.btn.btn-warning{:href => "/brewedit", :role => "button"} Begin
+
+      -if engaged==1
+        %a.button.btn.btn-warning{:href => "/brewedit", :role => "button"} Stop
+      -else
+        %a.button.btn.btn-warning{:href => "/brewedit", :role => "button"} Begin
 
     / jQuery (necessary for Bootstrap's JavaScript plugins)
     %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
