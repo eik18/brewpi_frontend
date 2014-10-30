@@ -7,6 +7,12 @@ require 'net/http'
 require 'jsonify'
 
 $esettemp="0"
+$cycle_length=0
+$duty_cycle=0
+$heating_element_id
+$temp1=0
+$temp2=0
+
 
 configure do
 	set :bind, '0.0.0.0'
@@ -48,6 +54,13 @@ get '/bbp/api/v1.0/status/2' do
 end
 
 post '/bbp/api/v1.0/set_temp' do
+  $cycle_length = params['cycle_length'] 
+  $duty_cycle = params['duty_cycle']
+  sensor_id =params['sensor_id']
+  tempstate = params['temp']
+  $heating_element_id = params['heating_element_id']
+  #NOTE - Create logic to select sensor here)
+
 
 end
 

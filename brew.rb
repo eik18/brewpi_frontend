@@ -75,8 +75,8 @@ post '/' do
 	duty_cycle=params[:hduty_cycle]
 	sensor_id=params[:hsensor_id]
 	heating_element_id=8
-	set_temp=220
-	data = {:cycle_length => cycle_length, :duty_cycle => duty_cycle,:sensor_id =>sensor_id, :temp=>temp, :heating_element_id => heating_element_id, :set_temp=>et_temp}
+	#set_temp=220
+	data = {'cycle_length' => cycle_length, 'duty_cycle' => duty_cycle,'sensor_id' =>sensor_id, 'temp'=>temp, 'heating_element_id' => heating_element_id}
 
 	response = post '/bbp/api/v1.0/set_temp', data
 
