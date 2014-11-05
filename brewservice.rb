@@ -59,7 +59,8 @@ post '/bbp/api/v1.0/set_temp' do
   sensor_id =params['sensor_id']
   tempstate = params['temp']
   $heating_element_id = params['heating_element_id']
-  #NOTE - Create logic to select sensor here)
+  
+ 
 
 
 end
