@@ -6,7 +6,7 @@ require 'json'
 require 'net/http'
 require 'jsonify'
 
-$esettemp="0"
+#$esettemp="0"
 $cycle_length=0
 $duty_cycle=0
 $heating_element_id

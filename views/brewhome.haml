@@ -17,7 +17,7 @@
     %h1 BrewPI
     .panel.panel-default
       .panel-heading
-        %h3.panel-title Current Temperature
+        %h3.panel-title Current Status
       .panel-body
         
         Temperature 1: #{temp1}
@@ -28,7 +28,7 @@
 
 
       -if engaged==true
-        %a.button.btn.btn-warning{:href => "/", :role => "button"} Stop
+        %a.button.btn.btn-warning{:href => "/brewstop", :role => "button"} Stop
       -else
         %a.button.btn.btn-warning{:href => "/brewedit", :role => "button"} Begin
 

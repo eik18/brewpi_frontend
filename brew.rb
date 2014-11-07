@@ -87,9 +87,20 @@ get "/brewedit" do
 	haml :brewedit, :locals => {:settemp=>"0", :dutycycle=>".5",:cyclelength=>"4",:sensorselect=>"null"}
 end
 
+get "/brewstop" do
+	settings = get '/bbp/api/v1.0/status/0'
+	
+	if (settings['exception']==true)
+		puts 'warning'
+	else
+		cycling=settings['body']['device']['Cycling']
+	end
+	haml :brewstop, :locals => {:engaged=>cycling}
+end
+
 post '/stoptemp' do
 
-	data=0
+	data={"blank"=>0}
 	response = post '/bbp/api/v1.0/stop_set_temp', data
 
 	redirect '/'
