@@ -22,13 +22,13 @@
         
         Temperature 1: #{temp1}
         %br Temperature 2: #{temp2}
-        - if engaged==1 
+        - if engaged==true
           %br Set Temp: #{rsettemp}
         
 
 
-      -if engaged==1
-        %a.button.btn.btn-warning{:href => "/brewedit", :role => "button"} Stop
+      -if engaged==true
+        %a.button.btn.btn-warning{:href => "/", :role => "button"} Stop
       -else
         %a.button.btn.btn-warning{:href => "/brewedit", :role => "button"} Begin
 

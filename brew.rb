@@ -69,7 +69,7 @@ get '/' do
 	
 end
 
-post '/' do
+post '/settemp' do
 	temp=params[:htemp]
 	cycle_length=params[:hcycle_length]
 	duty_cycle=params[:hduty_cycle]
@@ -79,14 +79,21 @@ post '/' do
 	data = {'cycle_length' => cycle_length, 'duty_cycle' => duty_cycle,'sensor_id' =>sensor_id, 'temp'=>temp, 'heating_element_id' => heating_element_id}
 
 	response = post '/bbp/api/v1.0/set_temp', data
-
-
-
-	haml :brewhome, :locals => {:temp1 => '14',:temp2=>'18',:rsettemp=>$esettemp}
+	redirect '/'
+	#haml :brewhome, :locals => {:temp1 => '14',:temp2=>'18',:rsettemp=>$esettemp}
 end
 
 get "/brewedit" do
 	haml :brewedit, :locals => {:settemp=>"0", :dutycycle=>".5",:cyclelength=>"4",:sensorselect=>"null"}
+end
+
+post '/stoptemp' do
+
+	data=0
+	response = post '/bbp/api/v1.0/stop_set_temp', data
+
+	redirect '/'
+	#haml :brewhome, :locals => {:temp1 => '14',:temp2=>'18',:rsettemp=>$esettemp}
 end
 
 =begin

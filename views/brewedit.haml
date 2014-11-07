@@ -19,7 +19,7 @@
       .panel-heading
         %h3.panel-title Current Temperature
       .panel-body
-        %form{:action => "/", :method => "post", :name => "input", :role => "form"}
+        %form{:action => "/settemp", :method => "post", :name => "input", :role => "form"}
           .form-group
             %label{:for => "htemp"} Select Temp
             %input#settemp.form-control{:name => "htemp", :placeholder => "Set Temp", :type => "text"}/
