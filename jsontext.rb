@@ -89,7 +89,7 @@ device1 = get '/bbp/api/v1.0/status/1'
 device2 = get '/bbp/api/v1.0/status/1'
 #device2['exception']
 
-
+=begin
 if (settings['exception']==true) or (device1['exception']==true) or (device2['exception']==true)
 	puts 'warning'
 else
@@ -101,6 +101,7 @@ else
 	puts dc2tempf=device2['body']["device"]["Temp F"]
 	puts cycling
 end
+=end
 
 #puts response
 #puts get '/bbp/api/v1.0/status/1'
