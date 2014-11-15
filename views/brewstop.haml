@@ -1,3 +1,4 @@
+/template for displaying confirmation dialog for stopping heatin cycle
 #content
 !!!
 %html{:lang => "en"}
@@ -21,6 +22,7 @@
       .panel-body
 
 
+      /logic for hiding or displaying dialog based on system state
       -if engaged==true
         Are you sure you want to stop the cycle?
         %p
@@ -29,7 +31,8 @@
           %p
           %a.button.btn.btn-warning{:href => "/", :role => "button"} Cancel
       -else
-        Brew Heating Cycle Not engaged, please return to the status page
+        Brew Heating Cycle not engaged, please return to the status page
+        %p
         %a.button.btn.btn-warning{:href => "/", :role => "button"} Return
 
     / jQuery (necessary for Bootstrap's JavaScript plugins)

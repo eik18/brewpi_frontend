@@ -1,3 +1,4 @@
+/this is a template for the root uri status page
 #content
 !!!
 %html{:lang => "en"}
@@ -21,12 +22,13 @@
       .panel-body
         
         Temperature 1: #{temp1}
+        /logic to hide set temp when system not engaged
         %br Temperature 2: #{temp2}
         - if engaged==true
           %br Set Temp: #{rsettemp}
         
 
-
+      / logic to swap button based on system state
       -if engaged==true
         %a.button.btn.btn-warning{:href => "/brewstop", :role => "button"} Stop
       -else
